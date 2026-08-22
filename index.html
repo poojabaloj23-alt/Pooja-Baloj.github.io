@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pooja Baloj | Portfolio</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+font-family:Inter,system-ui,Arial,sans-serif;
+background:#07111f;
+color:#eef6ff;
+line-height:1.6
+}
+a{text-decoration:none;color:inherit}
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+z-index:10;
+background:#07111fee;
+backdrop-filter:blur(14px);
+border-bottom:1px solid #ffffff18
+}
+
+.nav{
+max-width:1100px;
+margin:auto;
+padding:16px 22px;
+display:flex;
+justify-content:space-between;
+align-items:center
+}
+
+.logo{
+font-size:22px;
+font-weight:800;
+color:#55d6ff
+}
+
+.links{
+display:flex;
+gap:20px;
+list-style:none
+}
+
+.links a{
+color:#b8c7d9;
+font-size:14px
+}
+
+.links a:hover{color:#55d6ff}
+
+.menu{
+display:none;
+background:none;
+border:0;
+color:#fff;
+font-size:25px
+}
+
+section{padding:90px 22px}
+.wrap{max-width:1100px;margin:auto}
+
+.hero{
+min-height:100vh;
+display:grid;
+place-items:center;
+padding-top:110px;
+background:
+radial-gradient(circle at 80% 30%,#164e6380,transparent 35%),
+radial-gradient(circle at 10% 70%,#312e8155,transparent 30%)
+}
+
+.heroGrid{
+display:grid;
+grid-template-columns:1.3fr .7fr;
+gap:50px;
+align-items:center
+}
+
+.tag{
+color:#55d6ff;
+font-weight:700;
+letter-spacing:2px;
+text-transform:uppercase;
+font-size:13px
+}
+
+h1{
+font-size:clamp(44px,7vw,78px);
+line-height:1.05;
+margin:12px 0
+}
+
+h1 span,h2 span{color:#55d6ff}
+
+.lead{
+font-size:18px;
+color:#b8c7d9;
+max-width:650px;
+margin:20px 0 28px
+}
+
+.buttons,.social{
+display:flex;
+gap:12px;
+flex-wrap:wrap
+}
+
+.btn{
+padding:12px 18px;
+border-radius:10px;
+font-weight:700;
+border:1px solid #55d6ff55;
+display:inline-block;
+cursor:pointer
+}
+
+.primary{
+background:#55d6ff;
+color:#04101c
+}
+
+.ghost{color:#55d6ff}
+
+.photo{
+width:300px;
+height:300px;
+object-fit:cover;
+border-radius:50%;
+border:5px solid #55d6ff;
+box-shadow:0 0 60px #55d6ff30;
+margin:auto;
+display:block
+}
+
+.title{
+font-size:38px;
+text-align:center;
+margin-bottom:40px
+}
+
+.grid2{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:22px
+}
+
+.card{
+background:#0d1b2dcc;
+border:1px solid #ffffff12;
+border-radius:18px;
+padding:25px;
+box-shadow:0 15px 40px #0003
+}
+
+.card h3{
+color:#55d6ff;
+margin-bottom:10px
+}
+
+.muted{color:#aebed0}
+
+.skills{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+gap:14px
+}
+
+.skill{
+padding:18px;
+text-align:center;
+border-radius:14px;
+background:#0d1b2d;
+border:1px solid #ffffff12;
+transition:.25s
+}
+
+.skill:hover{
+transform:translateY(-5px);
+border-color:#55d6ff66
+}
+
+.projects{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+gap:20px
+}
+
+.project{min-height:190px}
+
+.project p{
+color:#b8c7d9;
+margin:10px 0 18px
+}
+
+.link{
+color:#55d6ff;
+font-weight:700
+}
+
+.timeline{
+border-left:2px solid #55d6ff55;
+padding-left:22px
+}
+
+.timeline .card{margin-bottom:18px}
+
+ul{
+padding-left:20px;
+color:#b8c7d9
+}
+
+.resumeBox{
+text-align:center;
+padding:45px;
+background:linear-gradient(135deg,#0d1b2d,#10263d);
+border:1px solid #55d6ff22;
+border-radius:22px
+}
+
+.contact{text-align:center}
+
+.social{
+justify-content:center;
+margin-top:20px
+}
+
+footer{
+text-align:center;
+padding:25px;
+border-top:1px solid #ffffff12;
+color:#8193a8
+}
+
+#top{
+position:fixed;
+right:20px;
+bottom:20px;
+border:0;
+border-radius:50%;
+width:44px;
+height:44px;
+background:#55d6ff;
+color:#06111d;
+display:none;
+cursor:pointer;
+font-weight:bold
+}
+
+@media(max-width:760px){
+
+.links{
+display:none;
+position:absolute;
+top:60px;
+left:0;
+right:0;
+background:#07111f;
+padding:18px;
+flex-direction:column;
+text-align:center
+}
+
+.links.open{display:flex}
+
+.menu{display:block}
+
+.heroGrid,
+.grid2{
+grid-template-columns:1fr;
+text-align:center
+}
+
+.photo{
+width:220px;
+height:220px
+}
+
+.lead{
+margin-left:auto;
+margin-right:auto
+}
+
+.timeline{text-align:left}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="nav">
+
+<a class="logo" href="#home">Pooja.</a>
+
+<button class="menu"
+onclick="document.querySelector('.links').classList.toggle('open')">
+☰
+</button>
+
+<ul class="links">
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#resume">Resume</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+</div>
+</nav>
+
+
+<section class="hero" id="home">
+
+<div class="wrap heroGrid">
+
+<div>
+
+<div class="tag">
+BCA Graduate • Software Intern • Web Developer
+</div>
+
+<h1>
+Hi, I'm <span>Pooja Baloj</span>
+</h1>
+
+<p class="lead">
+Motivated and hardworking BCA graduate seeking a challenging position
+to use my technical skills, learn new technologies, solve problems
+effectively, and contribute to organizational growth.
+</p>
+
+<div class="buttons">
+
+<a class="btn primary" href="#projects">
+Explore My Work
+</a>
+
+<a class="btn ghost" href="#resume">
+View Resume
+</a>
+
+</div>
+
+</div>
+
+
+<!-- YOUR PHOTO -->
+
+<img
+class="photo"
+src="portfolio.jpg"
+alt="Pooja Baloj">
+
+</div>
+
+</section>
+
+
+<section id="about">
+
+<div class="wrap">
+
+<h2 class="title">
+About <span>Me</span>
+</h2>
+
+<div class="grid2">
+
+<div class="card">
+
+<h3>Objective</h3>
+
+<p class="muted">
+Motivated and hardworking BCA graduate seeking a challenging
+position to utilize my technical skills, learn new technologies,
+solve problems effectively, and contribute to the growth of the organization.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>Quick Facts</h3>
+
+<ul>
+
+<li>BCA — 2026</li>
+
+<li>CGPA: 8.55/10</li>
+
+<li>Athani, Karnataka, India</li>
+
+<li>Languages: Kannada, English, Hindi</li>
+
+<li>
+Interest: Reading books to improve vocabulary and communication
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="skills">
+
+<div class="wrap">
+
+<h2 class="title">
+My <span>Skills</span>
+</h2>
+
+<div class="skills">
+
+<div class="skill">C</div>
+<div class="skill">Java</div>
+<div class="skill">Python</div>
+<div class="skill">HTML</div>
+<div class="skill">CSS</div>
+<div class="skill">JavaScript</div>
+<div class="skill">React.js</div>
+<div class="skill">Node.js</div>
+<div class="skill">MySQL</div>
+<div class="skill">Database Management</div>
+<div class="skill">Communication</div>
+<div class="skill">Time Management</div>
+<div class="skill">Problem Solving</div>
+<div class="skill">Critical Thinking</div>
+<div class="skill">Teamwork</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="projects">
+
+<div class="wrap">
+
+<h2 class="title">
+Featured <span>Projects</span>
+</h2>
+
+<div class="projects">
+
+<div class="card project">
+
+<h3>
+E-Commerce Website — Frontend
+</h3>
+
+<p>
+Developed a responsive e-commerce website frontend using HTML,
+CSS, and JavaScript. Designed user-friendly product pages and
+navigation to improve the overall user experience.
+</p>
+
+<span class="link">
+HTML • CSS • JavaScript
+</span>
+
+</div>
+
+
+<div class="card project">
+
+<h3>
+Tourism Management System
+</h3>
+
+<p>
+Developed a tourism management system integrating frontend,
+backend, and database components. Implemented features for
+managing tourism-related information using web technologies
+and database concepts.
+</p>
+
+<span class="link">
+Frontend • Backend • Database
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="experience">
+
+<div class="wrap">
+
+<h2 class="title">
+Experience & <span>Education</span>
+</h2>
+
+<div class="timeline">
+
+
+<div class="card">
+
+<h3>
+Software Intern — Nighan2 Lab Pvt. Ltd.
+</h3>
+
+<p class="muted">
+January 2026 – April 2026
+</p>
+
+<ul>
+
+<li>
+Gained practical experience in software development
+and programming concepts.
+</li>
+
+<li>
+Worked with development technologies and databases
+as part of software development activities.
+</li>
+
+<li>
+Collaborated with team members to understand requirements,
+solve technical problems, and complete assigned tasks.
+</li>
+
+</ul>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+Bachelor of Computer Applications (BCA)
+</h3>
+
+<p class="muted">
+KLE’s SSMS BCA College, Athani • 2026 • CGPA 8.55/10
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+Pre-University (PU), Science
+</h3>
+
+<p class="muted">
+Padmavti Science and Commerce PU College,
+Hosur-Rabkavi • 2023 • 62%
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>SSLC</h3>
+
+<p class="muted">
+Nandagaon Highschool, Nandagaon • 2021 • 86%
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<div class="wrap">
+
+<h2 class="title">
+Certifi<span>cations</span>
+</h2>
+
+<div class="grid2">
+
+<div class="card">
+<h3>Frontend Development</h3>
+</div>
+
+<div class="card">
+<h3>Backend Development</h3>
+</div>
+
+<div class="card">
+<h3>
+Python for Data Science and Machine Learning
+</h3>
+</div>
+
+<div class="card">
+
+<h3>Languages</h3>
+
+<p class="muted">
+Kannada • English • Hindi
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="resume">
+
+<div class="wrap">
+
+<h2 class="title">
+My <span>Resume</span>
+</h2>
+
+
+<div class="resumeBox">
+
+<h3 style="color:#55d6ff">
+Pooja Baloj
+</h3>
+
+<p class="muted">
+BCA Graduate • Software Intern • Web Developer
+</p>
+
+<p class="muted" style="margin:15px 0">
+
+Athani, Karnataka, India
+•
++91 8296472108
+•
+poojabaloj5@gmail.com
+
+</p>
+
+<a class="btn primary" href="#resume-details">
+View Resume Details
+</a>
+
+</div>
+
+
+<div
+id="resume-details"
+class="card"
+style="margin-top:20px">
+
+<h3>Resume</h3>
+
+<p>
+
+<b>Objective:</b>
+
+Motivated and hardworking BCA graduate seeking a challenging
+position to utilize technical skills, learn new technologies,
+solve problems effectively, and contribute to organizational growth.
+
+</p>
+
+<br>
+
+<h3>Education</h3>
+
+<ul>
+
+<li>
+BCA, KLE’s SSMS BCA College, Athani —
+2026 — CGPA 8.55/10
+</li>
+
+<li>
+PU Science, Padmavti Science and Commerce PU College,
+Hosur-Rabkavi — 2023 — 62%
+</li>
+
+<li>
+SSLC, Nandagaon Highschool, Nandagaon —
+2021 — 86%
+</li>
+
+</ul>
+
+<br>
+
+<h3>Internship</h3>
+
+<p>
+Software Intern, Nighan2 Lab Pvt. Ltd.
+— January 2026 – April 2026
+</p>
+
+<br>
+
+<h3>Technical Skills</h3>
+
+<p>
+C • Java • Python • HTML • CSS • JavaScript •
+React.js • Node.js • MySQL • Database Management
+</p>
+
+<br>
+
+<h3>Certifications</h3>
+
+<p>
+Frontend Development • Backend Development •
+Python for Data Science and Machine Learning
+</p>
+
+<br>
+
+<h3>Languages</h3>
+
+<p>
+Kannada • English • Hindi
+</p>
+
+<br>
+
+<button
+class="btn primary"
+onclick="window.print()">
+
+Print / Save Resume as PDF
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="contact">
+
+<div class="wrap contact">
+
+<h2 class="title">
+Let's <span>Connect</span>
+</h2>
+
+<p class="muted">
+I'm open to opportunities, collaboration and learning.
+</p>
+
+
+<div class="social">
+
+<a
+class="btn primary"
+href="mailto:poojabaloj5@gmail.com">
+
+✉ Email Me
+
+</a>
+
+
+<a
+class="btn ghost"
+href="tel:+918296472108">
+
+☎ +91 8296472108
+
+</a>
+
+
+<a
+class="btn ghost"
+href="https://www.linkedin.com/"
+target="_blank">
+
+LinkedIn
+
+</a>
+
+
+<a
+class="btn ghost"
+href="https://github.com/"
+target="_blank">
+
+GitHub
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+© <span id="year"></span>
+Pooja Baloj • Built with HTML, CSS & JavaScript
+
+</footer>
+
+
+<button
+id="top"
+onclick="window.scrollTo({top:0,behavior:'smooth'})">
+
+↑
+
+</button>
+
+
+<script>
+
+document.getElementById('year').textContent =
+new Date().getFullYear();
+
+const topBtn =
+document.getElementById('top');
+
+addEventListener('scroll',()=>{
+
+topBtn.style.display =
+scrollY > 500 ? 'block' : 'none';
+
+});
+
+
+document.querySelectorAll('.links a')
+.forEach(a=>{
+
+a.onclick=()=>{
+
+document
+.querySelector('.links')
+.classList
+.remove('open');
+
+};
+
+});
+
+</script>
+
+</body>
+  </html>
